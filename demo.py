@@ -34,7 +34,7 @@ if option == '主頁':
 if option == '歌曲':
     st.image('./賀卡.png')
     st.write('\n')
-    audio_file = open('song.mp3', 'rb')
+    audio_file = open('./song.mp3', 'rb')
     audio_bytes = audio_file.read()
     st.audio(audio_bytes, format='audio/ogg')
     for i in range(0, len(lyrics), 2):
