@@ -2,18 +2,21 @@ import streamlit as st
 # import base64
 # main_bg = "./賀卡bg.png"
 # main_bg_ext = "png"
-
 option = st.sidebar.selectbox('選單', options=['主頁', '歌曲', '小說'])
 # st.markdown(
-#     f"""
+#     """
 #     <style>
 #     .reportview-container {{
-#         background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
-#     }}
+#         background-color: blue; }
+#     }
 #     </style>
 #     """,
 #     unsafe_allow_html=True
 # )
+
+# .reportview-container {
+#     background: url("url_goes_here")
+# }
 
 with open('./lyrics.txt') as fh:
     lyrics = fh.read()
@@ -36,7 +39,7 @@ if option == '歌曲':
     st.write('\n')
     # audio_file = open('./song.mp3', 'rb')
     # audio_bytes = audio_file.read()
-    st.audio('https://drive.google.com/uc?export=download&id=1faBK7r8JfrHTe937rMdTNIuDaw6Lh85J', format='audio/ogg')
+    st.audio('https://drive.google.com/uc?export=download&id=1aXo2MJAOE9J9mAYDzXHUGDdUMNKAEdU7', format='audio/ogg')
     for i in range(0, len(lyrics), 2):
         ch = lyrics[i]
         try:
