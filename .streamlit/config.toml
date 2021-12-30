@@ -5,5 +5,5 @@ secondaryBackgroundColor='#f5ffff'
 font = 'sans serif'
 [server]
 headless = true
-port = 8501
+port = $PORT
 enableCORS = false
