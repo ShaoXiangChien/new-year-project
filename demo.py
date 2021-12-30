@@ -53,10 +53,16 @@ if option == 'Cast':
             cols[i][0].write('\n')
             cols[i][1].write('\n')
 
-        cols[i][1].subheader(title[i])
+        tt = '<h2 style="font-family:sans-serif; font: bold; color:Black; font-size: 25px;">' + \
+            title[i] + ' - ' + talent[i] + '</h2>'
+        cols[i][1].markdown(tt, unsafe_allow_html=True)
+        # cols[i][1].subheader(title[i])
         cols[i][1].write('\n')
         for line in cast_texts[i]:
-            cols[i][1].write('**' + line + '**')
+            md = '<h3 style="font-family:sans-serif; font: bold; color:Black; font-size: 20px;">' + \
+                line + '</h3>'
+            cols[i][1].markdown(md, unsafe_allow_html=True)
+
         if i < 3:
             cols[i][1].caption('ig: ' + ig[i])
         for j in range(5):
@@ -80,7 +86,7 @@ if option == '歌曲':
     st.subheader('\n中日歌詞\n')
     for i in range(0, len(lyrics), 2):
         try:
-            ch = jp = '<p style="font-family:sans-serif; font: bold; color:Black; font-size: 20px;">' + \
+            ch = '<p style="font-family:sans-serif; font: bold; color:Black; font-size: 20px;">' + \
                 lyrics[i] + '</p>'
             jp = '<p style="font-family:sans-serif; color:Gray; font-size: 15px;">' + \
                 lyrics[i+1] + '</p>'
@@ -91,4 +97,6 @@ if option == '歌曲':
 
 if option == '小說':
     for line in novel.split('\n'):
-        st.write(line)
+        md = '<p style="font-family:sans-serif; font: bold; color:Black; font-size: 20px;">' + \
+            line + '</p>'
+        st.markdown(md, unsafe_allow_html=True)
