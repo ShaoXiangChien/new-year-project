@@ -27,13 +27,16 @@ with open('./novel.txt') as fh:
     novel = fh.read()
 
 
-st.title('Project Jadeite')
+# st.title('Project Jadeite')
+st.markdown('<h1 style="font-family:sans-serif; font-weight: bold; color:Black; font-size: 40px;">' +
+            'Project Jadeite' + '</h1>', unsafe_allow_html=True)
 st.write('\n\n')
 st.write('\n\n')
 
 if option == '主頁':
     st.image('./賀卡.png')
-    st.subheader('點擊左上角箭頭展開選單就可以看到其他作品啦！')
+    st.markdown('<h2 style="font-family:sans-serif; font: bold; color:Black; font-size: 25px;">' +
+                '點擊左上角箭頭展開選單就可以看到其他作品啦！' + '</h2>', unsafe_allow_html=True)
 
 if option == 'Cast':
     st.header('Casting')
@@ -68,19 +71,22 @@ if option == '歌曲':
     st.write('\n')
     # audio_file = open('./song.mp3', 'rb')
     # audio_bytes = audio_file.read()
-    st.subheader('有些話想跟大家說～\n')
+    st.markdown('<h2 style="font-family:sans-serif; font: bold; color:Black; font-size: 25px;">' +
+                '有些話想跟大家說～' + '</h2>', unsafe_allow_html=True)
     st.audio('https://drive.google.com/uc?export=download&id=1FEbwhWEXl8QvoJcmMSduNT1xIX6wQW2r', format='audio/ogg')
-    st.subheader('\n歌曲音源\n')
+    st.markdown('<h2 style="font-family:sans-serif; font: bold; color:Black; font-size: 25px;">' +
+                '歌曲音源' + '</h2>', unsafe_allow_html=True)
     st.audio('https://drive.google.com/uc?export=download&id=1aXo2MJAOE9J9mAYDzXHUGDdUMNKAEdU7', format='audio/ogg')
     st.subheader('\n中日歌詞\n')
     for i in range(0, len(lyrics), 2):
-        ch = lyrics[i]
         try:
+            ch = jp = '<p style="font-family:sans-serif; font: bold; color:Black; font-size: 20px;">' + \
+                lyrics[i] + '</p>'
             jp = '<p style="font-family:sans-serif; color:Gray; font-size: 15px;">' + \
                 lyrics[i+1] + '</p>'
         except:
             continue
-        st.write(ch)
+        st.markdown(ch, unsafe_allow_html=True)
         st.markdown(jp, unsafe_allow_html=True)
 
 if option == '小說':
