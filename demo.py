@@ -40,24 +40,24 @@ if option == 'Cast':
     title = ['Project Initiator', 'Illustrator', 'Vocal', 'Novelist']
     ig = ['critic_suika', 'yueling_tsai', 'Ericchien21']
     talent = ['Eve', '蔡岳陵', '艾瑞克簡', 'Jeffery']
-    cols = st.columns(2)
+    cols = [st.columns(2) for i in range(4)]
     for i in range(4):
         for j in range(5):
-            cols[0].write('\n')
-        cols[0].image(
+            cols[i][0].write('\n')
+        cols[i][0].image(
             f'./cast_info/talent{i+1}.png', width=230, caption=talent[i])
         for j in range(3):
-            cols[0].write('\n')
-            cols[1].write('\n')
+            cols[i][0].write('\n')
+            cols[i][1].write('\n')
 
-        cols[1].subheader(title[i])
-        cols[1].write('\n')
+        cols[i][1].subheader(title[i])
+        cols[i][1].write('\n')
         for line in cast_texts[i]:
-            cols[1].write('**' + line + '**')
+            cols[i][1].write('**' + line + '**')
         if i < 3:
-            cols[1].caption('ig: ' + ig[i])
+            cols[i][1].caption('ig: ' + ig[i])
         for j in range(5):
-            cols[1].write('\n')
+            cols[i][1].write('\n')
         # if i == 1 or i == 2:
         #     for j in range(2):
         #         cols[1].write('\n')
